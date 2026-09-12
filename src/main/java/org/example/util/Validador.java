@@ -22,7 +22,7 @@ public final class Validador {
         }
     }
 
-    public static LocalDate ValidarDatas(int ano, int mes){
+    public static LocalDate ValidarDatas(int ano, int mes) throws InvalidParameterException{
         int anoAtual = Year.now().getValue();
 
         if (ano >= anoAtual) {
@@ -36,11 +36,39 @@ public final class Validador {
         }
     }
 
-    public static int validarPositivos(int n){
+    public static int validarPositivos(int n) throws InvalidParameterException{
         if (n > 0) {
             return n;
         } else {
             throw new InvalidParameterException("A quantidade de produtos deve ser mmaior que zero");
+        }
+    }
+
+    public static String validarTelefone(String telefone) throws InvalidParameterException{
+        // Valida se o telefone possui 11 Numeros
+        String regex = "^[0-9]{11}$";
+
+        if(telefone.matches(regex)){
+            String ddd = telefone.substring(0, 2);
+            StringBuilder numeros = new StringBuilder(telefone.substring(2));
+            numeros.insert(4, "-");
+
+            return "("+ ddd + ") " + numeros;
+        }else{
+            throw new InvalidParameterException("O telefone só deve possuir 11 caracteres e somente numeros");
+        }
+    }
+
+    public static String validarNome(String nome) throws InvalidParameterException{
+        //Valida apenas nomes que não possuam:
+        //Caracteres especiais;
+        //Numeros;
+        //Pontuação
+        //Hifens são permitidos
+        String regex = "^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$";
+        if(nome.matches(regex)) return nome;
+        else {
+            throw new InvalidParameterException("Nome não deve receber caracters especiais, pontos e numeros");
         }
     }
 }

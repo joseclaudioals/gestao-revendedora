@@ -37,5 +37,3 @@ public class Cliente {
         PADRAO, BOM, RUIM
     }
 }
-
-

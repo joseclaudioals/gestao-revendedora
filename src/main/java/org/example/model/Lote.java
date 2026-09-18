@@ -15,9 +15,9 @@ public class Lote {
     Produto produto;
 
     Lote(String precoUnitario, int anoValidade, int mesValidade, int anoCompra, int mesCompra, int quantidade) {
-        this.precoUnitario = Validador.ValidarPreco(precoUnitario);
-        this.dataValidade = Validador.ValidarDatas(anoValidade, mesValidade);
-        this.dataCompra = Validador.ValidarDatas(anoCompra, mesCompra);
+        this.precoUnitario = Validador.validarPreco(precoUnitario);
+        this.dataValidade = Validador.validarDatas(anoValidade, mesValidade);
+        this.dataCompra = Validador.validarDatas(anoCompra, mesCompra);
         this.quantidade = Validador.validarPositivos(quantidade);
     }
 
@@ -25,9 +25,9 @@ public class Lote {
         this.id = id;
     }
 
-    private void setPrecoUnitario(String precoUnitario) {this.precoUnitario = Validador.ValidarPreco(precoUnitario);}
-    private void setDataValidade(int ano, int mes) {this.dataValidade = Validador.ValidarDatas(ano, mes);}
-    private void setDataCompra(int ano, int mes) {this.dataCompra = Validador.ValidarDatas(ano, mes);}
+    private void setPrecoUnitario(String precoUnitario) {this.precoUnitario = Validador.validarPreco(precoUnitario);}
+    private void setDataValidade(int ano, int mes) {this.dataValidade = Validador.validarDatas(ano, mes);}
+    private void setDataCompra(int ano, int mes) {this.dataCompra = Validador.validarDatas(ano, mes);}
     private void setQuantidade(int quantidade) {this.quantidade = Validador.validarPositivos(quantidade);}
     public void setProduto(Produto produto) {
         this.produto = produto;

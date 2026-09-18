@@ -8,7 +8,7 @@ import java.time.Year;
 public final class Validador {
     private Validador() {} // bloqueia o construtor dentro da propria classe
 
-    public static BigDecimal ValidarPreco(String n) throws InvalidParameterException {
+    public static BigDecimal validarPreco(String n) throws InvalidParameterException {
         //valida se a string possui apenas numeros e não inicia com zero
         String regex = "^[1-9]\\d*$";
         if (n.matches(regex)) {
@@ -22,7 +22,7 @@ public final class Validador {
         }
     }
 
-    public static LocalDate ValidarDatas(int ano, int mes) throws InvalidParameterException{
+    public static LocalDate validarDatas(int ano, int mes) throws InvalidParameterException{
         int anoAtual = Year.now().getValue();
 
         if (ano >= anoAtual) {

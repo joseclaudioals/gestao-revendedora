@@ -8,7 +8,7 @@ import java.util.List;
 public class Pagamento {
     private String formaPagamento;
     private int qntParcelas;
-    private boolean status; // todas as aprcelas foram pagas ou não
+    private boolean status; // todas as parcelas foram pagas ou não
     private List<Parcela> parcelas;
 
     Pagamento(String formaPagamento, int qntParcelas, boolean status){

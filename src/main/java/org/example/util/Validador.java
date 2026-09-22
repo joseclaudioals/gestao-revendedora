@@ -71,4 +71,23 @@ public final class Validador {
             throw new InvalidParameterException("Nome não deve receber caracters especiais, pontos e numeros");
         }
     }
+
+    public static String validarSenha(String senha){
+        //Valida apenas nomes que:
+        //Senha possui 8 ou mais caracteres
+        //Possui pelo menos um caracter especial
+        //Possui pelo menos um caracter numerico
+        //Nao possui espaços
+        if (!senha.matches("^.{9,}$")){
+            throw new InvalidParameterException("A senha deve possuir 8 ou mais caracteres");
+        }else if(!senha.matches("^(?=.*[!@#$%^&*(),.?\":{}|<>_\\-\\[\\]\\/\\\\~`+=;']).*$")){
+            throw  new InvalidParameterException(("A senha deve possuir ao menos um caracter especial"));
+        }else if(!senha.matches("^(?=.*\\d).*$")){
+            throw new InvalidParameterException("A senha deve possuir ao menos um caracter numerico");
+        }else if(!senha.matches("^\\S+$")){
+            throw new InvalidParameterException("A senha nao deve possuir espaços");
+        }else{
+            return senha;
+        }
+    }
 }

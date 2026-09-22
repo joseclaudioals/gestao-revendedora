@@ -14,11 +14,12 @@ public class Lote {
     StatusLote status;
     Produto produto;
 
-    Lote(String precoUnitario, int anoValidade, int mesValidade, int anoCompra, int mesCompra, int quantidade) {
+    Lote(String precoUnitario, int anoValidade, int mesValidade, int anoCompra, int mesCompra, int quantidade, Produto produto) {
         this.precoUnitario = Validador.validarPreco(precoUnitario);
         this.dataValidade = Validador.validarDatas(anoValidade, mesValidade);
         this.dataCompra = Validador.validarDatas(anoCompra, mesCompra);
         this.quantidade = Validador.validarPositivos(quantidade);
+        this.produto = produto;
     }
 
     public void setId(int id) {

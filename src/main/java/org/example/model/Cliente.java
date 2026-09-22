@@ -11,7 +11,7 @@ public class Cliente {
     Cliente(String nome, String telefone, String endereco){
         this.nome = Validador.validarNome(nome);
         this.telefone = Validador.validarTelefone(telefone);
-        this.endereco = endereco;
+        this.endereco = Validador.validarNome(endereco);
         this.status = StatusCliente.PADRAO;
     }
 
@@ -28,7 +28,7 @@ public class Cliente {
 
     public void setNome(String nome) {this.nome = Validador.validarNome(nome);}
     public void setTelefone(String telefone) {this.telefone = Validador.validarTelefone(telefone);}
-    public void setEndereco(String endereco) {this.endereco = endereco;}
+    public void setEndereco(String endereco) {this.endereco = Validador.validarNome(endereco);}
     public void setStatus(StatusCliente status) {
         this.status = status;
     }

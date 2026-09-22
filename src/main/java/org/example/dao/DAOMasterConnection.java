@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DAOMasterConnection {
-    private static final String url = "jdbc::sqlite:data.usuarios.db";
+    private static final String url = "jdbc:sqlite:data.usuarios.db";
 
     public static Connection getConnection() throws SQLException {
         Connection conn = DriverManager.getConnection(url);

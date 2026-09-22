@@ -17,16 +17,16 @@ public class Produto {
     Produto(String nome, String precoVarejo, String codProduto, String linhaProduto, String descricao){
         this.nome = Validador.validarNome(nome);
         this.precoVarejo = Validador.validarPreco(precoVarejo);
-        this.codProduto = codProduto;
-        this.linhaProduto = linhaProduto;
-        this.descricao = descricao;
+        this.codProduto = codProduto; 
+        this.linhaProduto = Validador.validarNome(linhaProduto);
+        this.descricao = descricao; /
         this.lotes = new ArrayList<>();
     }
 
     public void setNome(String nome) {this.nome = Validador.validarNome(nome);}
     public void setPrecoVarejo(String precoVarejo) {this.precoVarejo = Validador.validarPreco(precoVarejo);}
     public void setCodProduto(String codProduto) {this.codProduto = codProduto;}
-    public void setLinhaProduto(String linhaProduto) {this.linhaProduto = linhaProduto;}
+    public void setLinhaProduto(String linhaProduto) {this.linhaProduto = Validador.validarNome(linhaProduto);}
     public void setDescricao(String descricao) {this.descricao = descricao;}
 
     public String getNome() {return nome;}

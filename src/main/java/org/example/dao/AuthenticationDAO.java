@@ -41,6 +41,7 @@ public class AuthenticationDAO {
             if (!rs.next()) return false;
 
             String hash = rs.getString("senha");
+            // pega o hash do banco e verifica se a senha parametro possui o mesmo hash
             return BCrypt.checkpw(senha, hash);
         }
     }

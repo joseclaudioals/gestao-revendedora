@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MasterConnectionDAO {
-    private static final String url = "jdbc:sqlite:data.usuarios.db";
+    private static final String url = "jdbc:sqlite:data/usuarios.db";
 
     // ao usar conn é bom usar try para que ele abra a feche a conexão com o banco automaticamente
     public static Connection getConnection() throws SQLException {

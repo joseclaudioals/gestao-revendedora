@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class PerfilDAO {
     private static String CaminhoBanco(String username) {
-        return "jdbc:sqlite:data/perfil/" + username + ".db";
+        return "jdbc:sqlite:data/perfis/" + username + ".db";
     }
 
     public static void criarBanco(String username) throws SQLException{
@@ -18,16 +18,18 @@ public class PerfilDAO {
         try (Connection conn = DriverManager.getConnection(CaminhoBanco(username))){ // procura o driver do banco para se conectar na sessão do usuário
             String sql = """
                     CREATE TABLE IF NOT EXISTS perfil(
-                        id INTEGER PRIMARY KEY AUTOINCREMENT.
-                        nome TEXT,
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        nome TEXT DEFAULT 'baleco',
                     )
                     """;
             conn.createStatement().execute(sql);
-
+            conn.createStatement().execute(
+                    "INSERT INTO perfil (nome) VALUES ('Novo usuário')"
+            );
         }
     }
 
     public static Connection getConexaoUsuario(String username) throws SQLException{
-        return DriverManager.getConnection(CaminhoBanco(username))
+        return DriverManager.getConnection(CaminhoBanco(username));
     }
 }

@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.entity;
 
 import org.example.util.Validador;
 import java.math.BigDecimal;

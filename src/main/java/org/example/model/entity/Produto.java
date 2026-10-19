@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.entity;
 
 import org.example.util.Validador;
 
@@ -19,7 +19,7 @@ public class Produto {
         this.precoVarejo = Validador.validarPreco(precoVarejo);
         this.codProduto = codProduto; 
         this.linhaProduto = Validador.validarNome(linhaProduto);
-        this.descricao = descricao; /
+        this.descricao = descricao;
         this.lotes = new ArrayList<>();
     }
 

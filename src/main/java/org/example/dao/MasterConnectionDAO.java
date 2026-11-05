@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Classe responsável pro criar a conexão do programa com o bando de dados de usuários
+ */
 public class MasterConnectionDAO {
     private static final String url = "jdbc:sqlite:data/usuarios.db";
 

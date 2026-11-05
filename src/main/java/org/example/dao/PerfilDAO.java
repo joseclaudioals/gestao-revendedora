@@ -6,10 +6,21 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class PerfilDAO {
+    /**
+     * Classe para consultar o caminho do bandco de um usuário
+     * @param username recebe o nome do usuário como parametro pois a nomenclatura dos arquivos .bd é 'username.db'
+     * @return retorna o caminho completo para o banco do usuário
+     */
     private static String CaminhoBanco(String username) {
         return "jdbc:sqlite:data/perfis/" + username + ".db";
     }
 
+    /**
+     * Cria o banco do usuário. Verifica se a pasta existe, se não, cria uma . Criamos o banco com uma query slqlite e separamos cada comando para rodar
+     * um por vez, e permitimos o uso de chaves estrangeiras
+     * @param username recebe o nome de usuário para chamar a função CaminhoBanco
+     * @throws SQLException caso a query sql falhe
+     */
     public static void criarBanco(String username) throws SQLException{
         File pasta = new File("data/perfis");
         if(!pasta.exists()) pasta.mkdirs(); // Se a pasta nao existir, criamos uma
@@ -109,6 +120,7 @@ public class PerfilDAO {
         }
     }
 
+    //
     public static Connection getConexaoUsuario(String username) throws SQLException{
         return DriverManager.getConnection(CaminhoBanco(username));
     }

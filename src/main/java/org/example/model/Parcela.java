@@ -15,7 +15,7 @@ public class Parcela {
         this.valorParcela = Validador.validarPreco(valorParcela);
         this.valorPago = Validador.validarPreco(valorPago);
         this.vencimento = Validador.validarDatas(anoVencimento, mesVencimento);
-        this.status = StatusParcela.NAOPAGO;
+        this.status = StatusParcela.NAO_PAGO;
     }
 
     public void setValorParcela(String valorParcela) {
@@ -40,6 +40,6 @@ public class Parcela {
     public StatusParcela getStatus() {return status;}
 
     public enum StatusParcela{
-        NAOPAGO, PAGO, ATRASADO
+        NAO_PAGO, PAGO, ATRASADO
     }
 }
